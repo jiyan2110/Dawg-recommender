@@ -1,38 +1,434 @@
-.App {
-  text-align: center;
+/* Minimalist Pastel Theme
+
+  Color Palette:
+  - Background: A gentle gradient from a soft cream (#F8F0E5) to a light beige (#EADBC8).
+  - Primary: A muted, warm tan (#DAC0A3) for buttons and accents.
+  - Text: Dark brown (#3C2A21) for high readability.
+  - Cards & Inputs: Clean white (#FFFFFF) with subtle shadows.
+*/
+
+/* Global Styles & Font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Using Inter as a modern, clean font */
+  background: linear-gradient(135deg, #F8F0E5 0%, #EADBC8 100%);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #3C2A21; /* Dark brown for primary text */
+  line-height: 1.6;
 }
 
-.App-link {
-  color: #61dafb;
+.App {
+  padding: 24px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Container */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: #3C2A21;
+  margin-bottom: 1rem;
+  font-weight: 600; /* Slightly lighter font weight */
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: #DAC0A3;
+  color: #3C2A21;
+}
+
+.btn-primary:hover {
+  background-color: #C6AD8F; /* A slightly darker shade for hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(60, 42, 33, 0.1);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #3C2A21;
+  border-color: #DAC0A3;
+}
+
+.btn-secondary:hover {
+  background: #FDF8F2;
+  transform: translateY(-2px);
+}
+
+/* Cards */
+.card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(60, 42, 33, 0.08);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(60, 42, 33, 0.1);
+}
+
+.card-clickable {
+  cursor: pointer;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #3C2A21;
+  margin-bottom: 8px;
+}
+
+.card-subtitle {
+  font-size: 16px;
+  color: #5F4C3F; /* Lighter brown for subtitles */
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-sidebar {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 968px) {
+  .grid-sidebar {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: 500;
+  color: #3C2A21;
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #EADBC8;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  background-color: #FCF8F3;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #DAC0A3;
+  box-shadow: 0 0 0 3px rgba(218, 192, 163, 0.2);
+  background-color: #fff;
+}
+
+/* Select Dropdown */
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+select.form-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%235F4C3F' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+/* Slider Styles */
+.slider-container {
+  margin-bottom: 24px;
+}
+
+.slider-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.slider-label-text {
+  font-weight: 500;
+  color: #3C2A21;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.slider-value {
+  background: #F8F0E5;
+  color: #3C2A21;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #EADBC8;
+  outline: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #DAC0A3;
+  transition: all 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  background: #C6AD8F;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #DAC0A3;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  background: #C6AD8F;
+}
+
+/* Multi-select Temperament Chips */
+.temperament-select {
+  margin-bottom: 24px;
+}
+
+.temperament-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.temperament-chip {
+  padding: 6px 14px;
+  background: #F8F0E5;
+  border: 1px solid #EADBC8;
+  border-radius: 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.temperament-chip:hover {
+  border-color: #DAC0A3;
+}
+
+.temperament-chip.selected {
+  background: #DAC0A3;
+  color: #3C2A21;
+  border-color: #DAC0A3;
+  font-weight: 500;
+}
+
+/* Simplified Breed Card */
+.breed-card {
+  background: #FFFFFF;
+  padding: 24px;
+}
+
+.breed-card-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #3C2A21;
+  margin-bottom: 16px;
+}
+
+.breed-info {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.breed-info-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px;
+  background: #FCF8F3;
+  border-radius: 8px;
+  border-left: 3px solid #DAC0A3;
+}
+
+.breed-info-label {
+  font-weight: 600;
+  color: #3C2A21;
+  margin-right: 8px;
+  min-width: 110px;
+}
+
+.breed-info-value {
+  color: #5F4C3F;
+}
+
+.match-score {
+  display: inline-block;
+  padding: 6px 16px;
+  background: #DAC0A3;
+  color: #3C2A21;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+/* Page Headers */
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px;
+  background: transparent; /* Cleaner without a separate card */
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.page-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #3C2A21;
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  font-size: 18px;
+  color: #5F4C3F;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(60, 42, 33, 0.08);
+  height: fit-content;
+  position: sticky;
+  top: 24px;
+}
+
+.sidebar-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3C2A21;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #EADBC8;
+}
+
+/* No Results & Loading */
+.no-results, .loading {
+  text-align: center;
+  padding: 40px 20px;
+  background: #FFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(60, 42, 33, 0.08);
+}
+
+.no-results-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  color: #DAC0A3;
+}
+
+.no-results-text {
+  font-size: 18px;
+  color: #5F4C3F;
+}
+
+.loading {
+  font-size: 18px;
+  color: #5F4C3F;
+}
+
+/* Simple Fade-In Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App {
+    padding: 16px;
+  }
+  
+  .page-title {
+    font-size: 28px;
+  }
+  
+  .page-subtitle {
+    font-size: 16px;
+  }
+  
+  .breed-card-title {
+    font-size: 24px;
+  }
+
+  .grid-sidebar {
+    gap: 20px;
+  }
+  
+  .sidebar {
+    position: static; /* Let sidebar flow naturally on mobile */
   }
 }
