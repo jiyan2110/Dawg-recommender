@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
-
+import os
 # --- 1. INITIALIZATION ---
 
 # Create the Flask web server
@@ -22,7 +22,8 @@ print("✅ Model loaded.")
 
 # Load the pre-computed breed embeddings from the file we created in Phase 1
 print("Loading breed embeddings...")
-with open('../backend/model_data/dog_breed_embeddings.pkl', 'rb') as f:
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+with open(os.path.join(BASE_DIR, '../backend/model_data/dog_breed_embeddings.pkl'), 'rb') as f:
     breed_embedding_dict = pickle.load(f)
 
 # Separate breed names and their embeddings into two lists for easier processing
