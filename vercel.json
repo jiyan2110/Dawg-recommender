@@ -1,5 +1,4 @@
 {
-    "version": 2,
     "builds": [
         {
             "src": "frontend/package.json",
@@ -13,15 +12,10 @@
             "use": "@vercel/python"
         }
     ],
-    "routes": [
+    "rewrites": [
         {
-            "src": "/api/(.*)",
-            "methods": ["POST"],
+            "source": "/api/(.*)",
             "destination": "/api/index.py"
-        },
-        {
-            "src": "/(.*)",
-            "destination": "/frontend/$1"
         }
     ]
 }
